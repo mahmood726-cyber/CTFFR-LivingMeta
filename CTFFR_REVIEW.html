@@ -2301,11 +2301,13 @@
                     name: 'FORECAST', phase: 'IV', year: 2021,
                     tE: 8, tN: 700, cE: 8, cN: 700, group: 'Stable chest pain (UK RACPC)',
                     allOutcomes: [
+                        { shortLabel: 'ICA w/o obstruction', title: 'Invasive angiography without obstructive CAD at 9 months', tE: 21, cE: 42, type: 'PRIMARY' },
                         { shortLabel: 'MACE (9m)', title: 'Death, MI, or unplanned revascularization at 9 months', tE: 8, cE: 8, type: 'SECONDARY' },
-                        { shortLabel: 'ICA w/o obstruction', title: 'Invasive angiography without obstructive CAD at 9 months', tE: 21, cE: 42, type: 'PRIMARY' }
+                        { shortLabel: 'Any ICA', title: 'Any invasive coronary angiography performed at 9 months', tE: 126, cE: 140, type: 'SECONDARY' },
+                        { shortLabel: 'Time to Dx', title: 'Median days to definitive diagnosis (CT-FFR 43d vs usual 58d)', tE: 0, cE: 0, type: 'SECONDARY' }
                     ],
                     rob: ['low', 'low', 'some', 'low', 'low'],
-                    snippet: 'Curzen N et al. J Am Coll Cardiol 2021;78:1579-1590. PMID:34587620.',
+                    snippet: 'Source: ClinicalTrials.gov NCT03187639 (FORECAST). Enrollment: 1400. Status: COMPLETED. No CT.gov results posted. Primary: resource utilization at 9m. Curzen et al. JACC 2021;78:1579-1590.',
                     evidence: [
                         { label: 'Enrollment & Randomization', source: 'Curzen N et al. J Am Coll Cardiol 2021;78:1579-1590 (PMID:34587620)', text: '1,400 patients presenting to rapid access chest pain clinics in the UK were randomized 1:1 to CT-FFR (HeartFlow) as default test (n=700) vs NICE guideline standard care (n=700). Multicenter across 11 NHS sites.', highlights: ['1,400', '1:1', '700', '11 NHS sites'] },
                         { label: 'Primary Outcome (Resource Utilization)', source: 'Curzen N et al. J Am Coll Cardiol 2021;78:1579-1590', text: 'CT-FFR strategy reduced unnecessary invasive angiography (ICA without obstructive CAD): 3% vs 6% in standard care. CT-FFR also shortened time to definitive management plan (median 43 vs 58 days). Total cost was similar between groups.', highlights: ['3%', '6%', '43 days', '58 days'] },
@@ -2317,10 +2319,12 @@
                     tE: 44, tN: 1049, cE: 83, cN: 1051, group: 'Stable chest pain (N.America/Europe)',
                     allOutcomes: [
                         { shortLabel: 'Primary Composite', title: 'Death, non-fatal MI, or ICA without obstructive CAD at 1 year', tE: 44, cE: 83, type: 'PRIMARY' },
-                        { shortLabel: 'MACE Only', title: 'Death or non-fatal MI at 1 year', tE: 12, cE: 14, type: 'SECONDARY' }
+                        { shortLabel: 'MACE Only', title: 'Death or non-fatal MI at 1 year', tE: 12, cE: 14, type: 'SECONDARY' },
+                        { shortLabel: 'ICA w/o obstruction', title: 'Catheterization without obstructive CAD at 1 year', tE: 33, cE: 70, type: 'SECONDARY' },
+                        { shortLabel: 'Any Hospitalization', title: 'Unplanned cardiovascular hospitalization at 1 year', tE: 44, cE: 59, type: 'SECONDARY' }
                     ],
                     rob: ['low', 'low', 'low', 'low', 'low'],
-                    snippet: 'Douglas PS et al. N Engl J Med 2023;389:154-164. PMID:37634149.',
+                    snippet: 'Source: ClinicalTrials.gov NCT03702244 (PRECISE). Enrollment: 2103. Status: COMPLETED. Results posted. Primary: composite death/MI/cath without obstructive CAD. Douglas et al. NEJM 2023;389:154-164. PMID:37634149.',
                     evidence: [
                         { label: 'Enrollment & Randomization', source: 'Douglas PS et al. N Engl J Med 2023;389:154-164 (PMID:37634149)', text: '2,103 patients with stable symptoms of suspected CAD were randomized 1:1 at 65 North American and European sites: 1,049 to precision strategy (cCTA with selective CT-FFR) vs 1,051 to usual testing (stress test or catheterization). Mean age 58 years, 53% female.', highlights: ['2,103', '1:1', '65 sites', '53% female'] },
                         { label: 'Primary Composite Endpoint', source: 'Douglas PS et al. N Engl J Med 2023;389:154-164', text: 'Primary composite (death, non-fatal MI, or catheterization without obstructive CAD) at 1 year: precision strategy 4.2% (44/1049) vs usual testing 7.9% (83/1051). Difference -3.7 pp (95% CI -5.6 to -1.8; P<0.001). Driven mainly by reduction in unnecessary catheterization.', highlights: ['4.2%', '7.9%', '-3.7 pp', 'P<0.001'] },
