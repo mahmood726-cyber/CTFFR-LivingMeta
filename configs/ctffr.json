@@ -1,0 +1,8 @@
+{
+  "drug": "CTFFR",
+  "drug_lower": "ctffr",
+  "condition": "Adults with stable CAD or acute chest pain",
+  "slug": "ctffr",
+  "source_repo": "C:\\Projects\\CTFFR-LivingMeta",
+  "source_html": "CTFFR_REVIEW.html"
+}
