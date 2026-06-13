@@ -1773,7 +1773,7 @@
                         <tr><td class="p-3 font-bold text-slate-400">CI Adjustment</td><td class="p-3 text-slate-300">Hartung-Knapp-Sidik-Jonkman (HKSJ); t-distribution with df = k&minus;1</td><td class="p-3 text-slate-500">Analysis &rarr; Stats</td></tr>
 
 
-                        <tr><td class="p-3 font-bold text-slate-400">Prediction Interval</td><td class="p-3 text-slate-300">t-distribution, df = k&minus;2 (Higgins 2009)</td><td class="p-3 text-slate-500">Analysis &rarr; Stats</td></tr>
+                        <tr><td class="p-3 font-bold text-slate-400">Prediction Interval</td><td class="p-3 text-slate-300">t-distribution, df = k&minus;1 (Cochrane Handbook v6.5)</td><td class="p-3 text-slate-500">Analysis &rarr; Stats</td></tr>
 
 
                         <tr><td class="p-3 font-bold text-slate-400">Heterogeneity</td><td class="p-3 text-slate-300">Cochran Q (p-value), I&sup2; (%), &tau;&sup2; (DL estimator)</td><td class="p-3 text-slate-500">Analysis &rarr; Stats</td></tr>
@@ -6249,7 +6249,8 @@ const ContinuousMDEngine = {
             hksjUCI = pMD + tCritHKSJ * hksjSE;
         }
 
-        // Prediction interval (Higgins 2009, t_{k-2}). NaN for k < 3.
+        // Prediction interval: t_{k-1} × sqrt(tau2 + SE^2) per Cochrane Handbook
+        // v6.5 §10.10.4.3 (RevMan-2025 default). NaN for k < 2.
         const piSE = Math.sqrt(tau2 + pSE * pSE);
         // PI df = k-1 per Cochrane Handbook v6.5 §10.10.4.3 (RevMan default).
         const tCritPI = (k >= 2) ? tQuantile(1 - (1 - confLevel) / 2, k - 1) : NaN;
@@ -14657,7 +14658,7 @@ const ContinuousMDEngine = {
                 'HKSJ correction applied with max(1, q*) safeguard.': 'تصحيح HKSJ مُطبّق مع حماية max(1, q*).',
 
 
-                'Prediction intervals computed with k\u22122 degrees of freedom per Higgins et al. (2009).': 'فترات التنبؤ محسوبة بـ k−2 درجات حرية وفق Higgins وآخرون (2009).',
+                'Prediction intervals computed with k\u22121 degrees of freedom per Cochrane Handbook v6.5.': 'فترات التنبؤ محسوبة بـ k−1 درجات حرية وفق دليل كوكرين الإصدار 6.5.',
 
 
 
@@ -39425,7 +39426,7 @@ print(res_sub)`;
                 document.getElementById('nyt-narrative').innerHTML = narrative;
 
 
-                document.getElementById('nyt-annotation').textContent = `Analysis performed using DerSimonian-Laird random-effects model with ${ciPct}% confidence intervals. HKSJ correction applied with max(1, q*) safeguard. Prediction intervals computed with k\u22122 degrees of freedom per Higgins et al. (2009).`;
+                document.getElementById('nyt-annotation').textContent = `Analysis performed using DerSimonian-Laird random-effects model with ${ciPct}% confidence intervals. HKSJ correction applied with max(1, q*) safeguard. Prediction intervals computed with k\u22121 degrees of freedom per Cochrane Handbook v6.5.`;
 
 
             },
@@ -42370,7 +42371,7 @@ except ImportError:
                 (k >= 3
 
 
-                    ? 'a ' + confLevel + '% prediction interval (Higgins 2009 t-distribution with df = k\u22122) was reported alongside the pooled CI. '
+                    ? 'a ' + confLevel + '% prediction interval (t-distribution with df = k\u22121, Cochrane Handbook v6.5) was reported alongside the pooled CI. '
 
 
                     : 'a prediction interval is not defined for k < 3 and was therefore not reported. ') +
